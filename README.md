@@ -2,7 +2,7 @@
 
 Translation using [Yandex](https://translate.yandex.com/) and [Google Translation Service](https://cloud.google.com/translate/docs/)
 
-Just select text press `ctrl-alt-t` and get your text translated. 
+Just select text press `ctrl-shift-t` and get your text translated. 
 
 Setup:
 * Get your [Translation API Key](#api-key) for your service provider.
