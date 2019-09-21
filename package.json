@@ -1,0 +1,79 @@
+{
+	"name": "vs-translator",
+	"displayName": "vs-translator",
+	"description": "Translate texts",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.vsTranslate"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.vsTranslate",
+				"title": "Translate Selected Text"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "ctrl+shift+t",
+				"command": "extension.vsTranslate"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "VS Translator Config",
+			"properties": {
+				"vsTranslator.key": {
+					"type": "string",
+					"default": "",
+					"description": "Translation API Key. Set Translation API Key Provided By your translation service provider. https: //github.com/bhaskardabhi/atom-translator#api-key"
+				},
+				"vsTranslator.lang": {
+					"type": "string",
+					"default": "ar",
+					"description": "Translate To Language. Specify which language to translate by default (e.g. `ar` or `en`). Arabic will be default"
+				},
+				"vsTranslator.source": {
+					"type": "string",
+					"default": "Yandex",
+					"enum": [
+						"Yandex",
+						"Google Translation"
+					],
+					"description": "Select Translation Service Provider"
+				}
+				
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"encodeurl": "^1.0.2",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.4"
+	}
+}
